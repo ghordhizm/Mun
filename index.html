@@ -7,13 +7,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>    
+<body style="overflow-y: hidden;">    
     
     <audio id="gizem-sesi" src="ses.mp3"></audio>
 
     <div id="giris-ekrani" onclick="dosyayiAc()">
-        <p style="color: #6b1414; font-size: 1.5rem; border: 3px dashed #6b1414; padding: 15px 30px; cursor: pointer; text-align: center; font-weight: bold;">
-            [ FILE: YAFL'26 ]<br><br><span style="font-size: 1.1rem; color: #777;">CLICK TO SEE</span>
+        <p style="color: #6b1414; font-size: 1.2rem; border: 3px dashed #6b1414; padding: 12px 20px; cursor: pointer; text-align: center; font-weight: bold; max-width: 85vw; margin: 0 auto; box-sizing: border-box;">
+            [ FILE: YAFL'26 ]<br><br><span style="font-size: 0.9rem; color: #777;">CLICK TO SEE</span>
         </p>
     </div>
 
@@ -91,7 +91,7 @@
     <section id="schedule" class="main-content">
         <div class="case-file">
             <div class="paperclip"></div>
-            <div class="stamp" style="top: 20px; right: 30px; transform: rotate(8deg); border-color: #111; color: #111;">TIMETABLE</div>
+            <div class="stamp" style="top: 45px; right: 60px; transform: rotate(8deg); border-color: #111; color: #111;">TIMETABLE</div>
             
             <h2 class="section-title">OPERATION SCHEDULE</h2>
             <p class="subtitle">The 4-Day Master Plan</p>
@@ -219,7 +219,7 @@
     <section id="location" class="main-content">
         <div class="case-file">
             <div class="paperclip"></div>
-            <div class="stamp" style="color: #111; border-color: #111; transform: rotate(-5deg); right: 40px; top: 40px;">CRIME SCENE</div>
+            <div class="stamp" style="color: #111; border-color: #111; transform: rotate(-5deg); right: 60px; top: 45px;">CRIME SCENE</div>
             
             <h2 class="section-title">LOCATION (THE SCENE)</h2>
             <p class="subtitle">Where The Incident Takes Place</p>
@@ -247,7 +247,7 @@
 
     <section id="contact" class="main-content">
         <div class="case-file">
-            <div class="stamp" style="color: #111; border-color: #111; transform: rotate(5deg); right: 40px; top: 40px;">URGENT</div>
+            <div class="stamp" style="color: #111; border-color: #111; transform: rotate(5deg); right: 60px; top: 45px;">URGENT</div>
             
             <h2 class="section-title">CONTACT (REPORT A CLUE)</h2>
             <hr class="divider">
@@ -290,8 +290,6 @@
         function dosyayiAc() {
             document.getElementById('giris-ekrani').style.display = 'none';
             document.getElementById('intro-screen').style.display = 'flex';
-            
-            document.body.style.overflowY = 'hidden';
             
             setTimeout(() => {
                 document.body.style.overflowY = 'auto';
