@@ -1,4 +1,4 @@
-/* SAFARİ KİLİDİ (Bunu takmazsa olmaz) */
+/* SAFARİ KİLİDİ */
 .ios-lock {
     overflow: hidden !important;
     position: fixed !important;
@@ -299,6 +299,30 @@ body {
     color: #ebdcc2;
     box-shadow: 0px 0px 0px #111;
     transform: translate(5px, 5px);
+}
+
+/* AÇILIR FORM LİNKLERİ */
+.uygulama-linki {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    background: #ebdcc2;
+    color: #111;
+    text-decoration: none;
+    padding: 15px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: 2px dashed #6b1414;
+    text-align: center;
+    transition: all 0.3s;
+    box-shadow: 3px 3px 0px rgba(107, 20, 20, 0.2);
+}
+.uygulama-linki:hover {
+    background: #6b1414;
+    color: #ebdcc2;
+    border: 2px solid #111;
+    box-shadow: 5px 5px 0px #111;
+    transform: translate(-2px, -2px);
 }
 
 #intro-screen {
