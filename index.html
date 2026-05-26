@@ -163,11 +163,36 @@
             
             <div class="grid-container">
                 <div class="grid-item">
-                    <img src="komite1.jpg" class="komite-foto" alt="Coomittees 1">
+                    <img src="komite1.jpg" class="komite-foto" alt="DISEC">
+                    <h3 style="text-align: center; margin-top: 10px;">DISEC</h3>
                 </div>
-                
                 <div class="grid-item">
-                    <img src="komite2.jpg" class="komite-foto" alt="Committees 2">
+                    <img src="komite2.jpg" class="komite-foto" alt="SOCHUM">
+                    <h3 style="text-align: center; margin-top: 10px;">SOCHUM</h3>
+                </div>
+                <div class="grid-item">
+                    <img src="komite3.jpg" class="komite-foto" alt="UNSC">
+                    <h3 style="text-align: center; margin-top: 10px;">UNSC</h3>
+                </div>
+                <div class="grid-item">
+                    <img src="komite4.jpg" class="komite-foto" alt="4th International">
+                    <h3 style="text-align: center; margin-top: 10px;">4th International</h3>
+                </div>
+                <div class="grid-item">
+                    <img src="komite5.jpg" class="komite-foto" alt="TBMM">
+                    <h3 style="text-align: center; margin-top: 10px;">TBMM</h3>
+                </div>
+                <div class="grid-item">
+                    <img src="komite6.jpg" class="komite-foto" alt="CABINET OF JACK THE RIPPER">
+                    <h3 style="text-align: center; margin-top: 10px;">CABINET OF JACK THE RIPPER</h3>
+                </div>
+                <div class="grid-item">
+                    <img src="komite7.jpg" class="komite-foto" alt="TJCC - SYRIAN CIVIL WAR">
+                    <h3 style="text-align: center; margin-top: 10px;">TJCC - SYRIAN CIVIL WAR</h3>
+                </div>
+                <div class="grid-item">
+                    <img src="komite8.jpg" class="komite-foto" alt="FCC - AGARTHA">
+                    <h3 style="text-align: center; margin-top: 10px;">FCC - AGARTHA</h3>
                 </div>
             </div>
         </div>
@@ -242,8 +267,8 @@
             
             <p>Do you have a question or need to report something suspicious? Reach out to our team.</p>
             <br>
-            <p><strong>Email:</strong> yaflmun.pr@gmail.com</p>
-            <p><strong>Instagram:</strong> <a href="#" style="color: #6b1414; font-weight: bold;">@yafl.mun26</a></p>
+            <p><strong>Email:</strong> <a href="mailto:yaflmun.pr@gmail.com" style="color: #6b1414; font-weight: bold; text-decoration: none;">yaflmun.pr@gmail.com</a></p>
+            <p><strong>Instagram:</strong> <a href="https://instagram.com/yafl.mun26" target="_blank" style="color: #6b1414; font-weight: bold; text-decoration: none;">@yafl.mun26</a></p>
         </div>
     </section>
 
@@ -257,9 +282,18 @@
             <p>If you are brave enough to open the files, discuss the clues, and find the killer, you must apply below.</p>
             <p>Take your place in the most exciting MUN event of the year.</p>
             
-            <div class="center-btn">
-                <a href="https://forms.google.com" target="_blank" class="investigate-btn">APPLY NOW</a>
+            <div class="center-btn" id="basvuru-btn-container">
+                <a href="javascript:void(0)" onclick="basvurulariAc()" class="investigate-btn">CHOOSE YOUR ROLE</a>
             </div>
+
+            <div id="basvuru-linkleri" style="display: none; flex-direction: column; gap: 15px; margin-top: 35px; align-items: center;">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScB9yV1Brz2giK89M-IwEGuokCnLuGBlKGK5nzLenk8t3vtGg/viewform?usp=send_form" target="_blank" class="uygulama-linki">INDIVIDUAL DELEGATE</a>
+                <a href="https://forms.gle/RYeP32jtSDZu8mpB7" target="_blank" class="uygulama-linki">DELEGATION</a>
+                <a href="https://forms.gle/M49icFh3FkisBznSA" target="_blank" class="uygulama-linki">CHAIRBOARD</a>
+                <a href="https://forms.gle/3dfqmDtwSyE3a8Jj9" target="_blank" class="uygulama-linki">ADMIN</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdmWk2QBg9D7nyNcJdOiIrrYSCuYPcXyRR-9aagMSlSwSGJBg/viewform" target="_blank" class="uygulama-linki">PR TEAM</a>
+            </div>
+
         </div>
     </section>
 
@@ -278,7 +312,6 @@
             document.getElementById('giris-ekrani').style.display = 'none';
             document.getElementById('intro-screen').style.display = 'flex';
             
-            // 4.5 saniye sonra Safari kilidini kaldırıp sayfayı serbest bırakıyoruz!
             setTimeout(() => {
                 document.body.classList.remove('ios-lock');
             }, 4500);
@@ -288,6 +321,12 @@
             } catch (e) {
                 console.log("Ses çalınamadı.");
             }
+        }
+
+        // Başvuru Butonuna Tıklanınca Linkleri Açan Fonksiyon
+        function basvurulariAc() {
+            document.getElementById('basvuru-btn-container').style.display = 'none';
+            document.getElementById('basvuru-linkleri').style.display = 'flex';
         }
     </script>
     
