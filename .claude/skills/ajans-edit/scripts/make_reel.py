@@ -15,10 +15,12 @@ def render_png(html,out):
     open(out+'.html','w').write(html)
     subprocess.check_call(['node','-e',f"""const {{chromium}}=require('playwright');(async()=>{{const b=await chromium.launch();const p=await b.newPage({{viewport:{{width:1080,height:1920}}}});await p.goto('file://{out}.html');await p.waitForTimeout(400);await p.screenshot({{path:'{out}',omitBackground:true}});await b.close();}})()"""])
 title=spec.get('title',[])
+PLAIN='' if B('title_style','box')!='plain' else '.b{background:none;box-shadow:none;color:#fff;font-size:%dpx;letter-spacing:2px;padding:0;-webkit-text-stroke:%spx #000;paint-order:stroke fill;text-shadow:0 3px 10px rgba(0,0,0,.35)}'%(B('title_size',78),B('title_stroke',5))
+if B('title_style','box')=='plain': TFONT=B('title_font_plain','DMSerifDisplay.ttf')
 th=''.join(f'<div class="b">{t}</div>' for t in title)
 render_png(f'''<html><head><style>@font-face{{font-family:MB;src:url('file://{FONTS}/{TFONT}')}}
 body{{margin:0;background:transparent;width:1080px;height:1920px;overflow:hidden}}.t{{position:absolute;left:0;right:0;top:{spec.get('title_top',250)}px;display:flex;flex-direction:column;align-items:center;gap:14px}}
-.b{{font-family:MB;font-size:48px;letter-spacing:1px;padding:14px 30px 12px;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.35);background:{TB};color:{TF}}}</style></head><body><div class="t">{th}</div></body></html>''',W+'/title.png')
+.b{{font-family:MB;font-size:48px;letter-spacing:1px;padding:14px 30px 12px;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.35);background:{TB};color:{TF}}}{PLAIN}</style></head><body><div class="t">{th}</div></body></html>''',W+'/title.png')
 render_png(f'''<html><head><style>@font-face{{font-family:Bree;src:url('file://{FONTS}/{SLFONT}')}}
 body{{margin:0;background:transparent;width:1080px;height:1920px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:40px}}
 img{{width:{560 if OSTYLE=='white' else 620}px;{'' if OSTYLE=='white' else 'filter:drop-shadow(0 18px 40px rgba(0,0,0,.45))'}}}.s{{font-family:Bree;font-size:54px;color:#fff;text-shadow:0 4px 18px rgba(0,0,0,.6)}}</style></head>
@@ -107,6 +109,7 @@ for k,s in enumerate(allsegs):
     a="asetpts=PTS-STARTPTS,"+("afftdn=nf=-28," if B("denoise",True) else "")+("dynaudnorm=f=300:g=21:p=0.85:m=12," if B("speech_boost",False) else "")+"aresample=48000"
     if sp!=1 and not s.get('outro'): a+=f",atempo={sp}"
     if s.get("outro"): a+=f",apad=whole_dur={OD:.3f}"
+    if s.get("vol") is not None: a+=f",volume={s['vol']}"
     if s.get('mute'): a+=",volume=0"
     if s.get('outro') and o.get('mute_audio',True): a+=",afade=out:st=0:d=0.5"
     subprocess.check_call(['ffmpeg','-v','error','-y','-ss',str(s['in']),'-t',str(s['out']-s['in']),'-i',f"{RAW}/{s['clip']}.MP4",'-vf',v,'-af',a,'-ac','2','-c:v','libx264','-crf','16','-preset','veryfast','-c:a','pcm_s16le','-threads','4',f"{W}/_seg/{k:02d}.mkv"])
