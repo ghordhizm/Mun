@@ -1,0 +1,40 @@
+{
+ "name": "Deniz Lokantası (Esnaf Cengiz Çorba Dünyası)",
+ "logo": "/home/user/Mun/.claude/skills/ajans-edit/brands/logos/deniz_logo_rozet.png",
+ "logo_dark": "brands/logos/deniz_logo_rozet.png",
+ "slogan": "",
+ "slogan_font": "DMSerifDisplay.ttf",
+ "fonts_dir": "/home/user/Mun/.claude/skills/ajans-edit/fonts",
+ "title_bg": "#13294B",
+ "title_fg": "#FFFFFF",
+ "title_font": "Montserrat-Black.ttf",
+ "sub": {
+  "font": "Montserrat Black",
+  "size": 44,
+  "outline": 1.6,
+  "shadow": 1.2,
+  "cap_size": 72,
+  "cap_margin_v": 480,
+  "karaoke": false,
+  "pop": false,
+  "color": "&H00FFFFFF"
+ },
+ "colors": {
+  "lacivert": "#13294B",
+  "altin": "#B88C4A",
+  "acik_mavi": "#9CB4CC",
+  "krem": "#FAF6EE"
+ },
+ "post": {
+  "bg": "krem #FAF6EE",
+  "fonts": "DM Serif Display + Barlow Condensed",
+  "accent": "#13294B / altın #B88C4A",
+  "logo": "orta alt"
+ },
+ "notes": "Altyazı: düz beyaz, animasyonsuz, renk değişmez, küçük, ince siyah kenar. Outro: sadece yuvarlak rozet logo, slogan yok. Gürültü engelleme KAPALI. Outro: krem/beyaz ekran yavaşça gelir (bulanık değil), tam logo (DENİZ LOKANTASI çizgili) ortada.",
+ "denoise": false,
+ "speech_boost": true,
+ "outro_style": "white",
+ "outro_bg": "#F7F3EC",
+ "outro_logo": "/home/user/Mun/.claude/skills/ajans-edit/brands/logos/deniz_logo_seffaf.png"
+}

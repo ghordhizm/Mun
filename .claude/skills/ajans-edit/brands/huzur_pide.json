@@ -1,0 +1,25 @@
+{
+ "name": "Huzur Pide",
+ "logo": "/home/user/Mun/.claude/skills/ajans-edit/brands/logos/huzur_logo_seffaf.png",
+ "slogan": "Seven sevdiğine pide ısmarlasın.",
+ "slogan_font": "BreeSerif.ttf",
+ "title_bg": "#E01E26",
+ "title_fg": "#FFFFFF",
+ "title_font": "Montserrat-Black.ttf",
+ "sub": {
+  "font": "Montserrat Black",
+  "size": 50,
+  "outline": 2.2,
+  "shadow": 0.8,
+  "karaoke": true,
+  "pop": true
+ },
+ "post": {
+  "bg": "krem (#f2e9da) + mekan iç fotoğrafı bulanık",
+  "fonts": "DM Serif Display + Playfair Italic",
+  "accent": "#9B2A1A",
+  "logo": "orta alt, 160px"
+ },
+ "notes": "Onaylandı (Kasım 2026). Karaoke altyazı (konuşulan kelime sarı).",
+ "fonts_dir": "/home/user/Mun/.claude/skills/ajans-edit/fonts"
+}
