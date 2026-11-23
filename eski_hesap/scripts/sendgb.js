@@ -1,0 +1,11 @@
+const {chromium}=require('playwright');
+(async()=>{const [url,out]=process.argv.slice(2);
+const b=await chromium.launch();const ctx=await b.newContext({acceptDownloads:true});const p=await ctx.newPage();
+const reqs=[];p.on('request',r=>{const u=r.url(); if(!/google|doubleclick|adjust|cloudflareinsights|_next\/static|\.css|\.png|\.svg|\.woff/.test(u)) reqs.push(r.method()+' '+u.slice(0,160));});
+await p.goto(url,{waitUntil:'networkidle',timeout:60000}).catch(e=>console.log('goto',e.message));
+await p.waitForTimeout(3000);
+const txt=(await p.innerText('body')).replace(/\s+/g,' ').slice(0,900); console.log('BODY:',txt);
+const btns=await p.$$eval('button,a',els=>els.map(e=>e.innerText.trim()).filter(t=>t&&t.length<40)); console.log('BTNS:',JSON.stringify(btns.slice(0,40)));
+console.log(reqs.slice(-15).join('\n'));
+await p.screenshot({path:out+'/sgb.png'});
+await b.close();})();
