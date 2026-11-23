@@ -111,7 +111,7 @@ for k,s in enumerate(allsegs):
     if s.get("outro"): a+=f",apad=whole_dur={OD:.3f}"
     if s.get("vol") is not None: a+=f",volume={s['vol']}"
     if s.get('mute'): a+=",volume=0"
-    if s.get('outro') and o.get('mute_audio',True): a+=",afade=out:st=0:d=0.5"
+    if s.get('outro') and o.get('mute_audio',True): a+=",volume=0"
     subprocess.check_call(['ffmpeg','-v','error','-y','-ss',str(s['in']),'-t',str(s['out']-s['in']),'-i',f"{RAW}/{s['clip']}.MP4",'-vf',v,'-af',a,'-ac','2','-c:v','libx264','-crf','16','-preset','veryfast','-c:a','pcm_s16le','-threads','4',f"{W}/_seg/{k:02d}.mkv"])
 inp=[]
 for k,s in enumerate(allsegs): inp+=['-i',f"{W}/_seg/{k:02d}.mkv"]
