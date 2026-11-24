@@ -109,6 +109,9 @@ for k,s in enumerate(allsegs):
     a="asetpts=PTS-STARTPTS,"+("afftdn=nf=-28," if B("denoise",True) else "")+("dynaudnorm=f=300:g=21:p=0.85:m=12," if B("speech_boost",False) else "")+"aresample=48000"
     if sp!=1 and not s.get('outro'): a+=f",atempo={sp}"
     if s.get("outro"): a+=f",apad=whole_dur={OD:.3f}"
+    sc=spec.get('soft_cut')
+    if sc and not s.get('outro'):
+        dd=s['out']-s['in']; a+=f",afade=in:st=0:d={sc},afade=out:st={max(0,dd-sc):.3f}:d={sc}"
     if s.get("vol") is not None: a+=f",volume={s['vol']}"
     if s.get('mute'): a+=",volume=0"
     if s.get('outro') and o.get('mute_audio',True): a+=",volume=0"
