@@ -1,0 +1,19 @@
+{
+ "name": "Doktorun Yeri",
+ "logo": "/home/user/Mun/.claude/skills/ajans-edit/brands/logos/doktorun_yeri_logo.png",
+ "outro_logo": "/home/user/Mun/.claude/skills/ajans-edit/brands/logos/doktorun_yeri_logo.png",
+ "slogan": "",
+ "fonts_dir": "/home/user/Mun/.claude/skills/ajans-edit/fonts",
+ "title_bg": "#D9573A",
+ "title_fg": "#FFFFFF",
+ "title_font": "Montserrat-Black.ttf",
+ "title_font_plain": "Anton.ttf",
+ "title_stroke": 4,
+ "sub": {"font": "Montserrat Black","size": 44,"outline": 1.6,"shadow": 1.2,"cap_size": 72,"cap_margin_v": 480,"karaoke": false,"pop": false,"color": "&H00FFFFFF"},
+ "denoise": false,
+ "speech_boost": true,
+ "outro_style": "blur",
+ "outro_bg": "#F6F0E4",
+ "colors": {"turuncu": "#D9573A", "koyu": "#2A2E2D", "krem": "#F6F0E4"},
+ "notes": "Logo: Instagram profil görselinden kesildi (krem daire). Krem logo olduğu için outro bulanık video + logo. Yazılar yuvarlak sans (logo fontu Montserrat'a yakın)."
+}
