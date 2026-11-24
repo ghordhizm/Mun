@@ -157,7 +157,7 @@ if music:
     mi=ni+2; vol=music.get('vol',0.12)
     fc.append(f"[{mi}:a]atrim={music.get('start',0)}:{music.get('start',0)+total},asetpts=PTS-STARTPTS,volume={vol},afade=out:st={total-2.6:.2f}:d=2.6[mu]")
     if music.get('duck'):
-        fc.append(f"[ca]atrim=0:{total:.3f},asplit[cd][sc];[mu][sc]sidechaincompress=threshold=0.02:ratio=8:attack=20:release=400[md];[cd][md]amix=inputs=2:duration=first:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=11[af]")
+        fc.append(f"[ca]atrim=0:{total:.3f},asplit[cd][sc];[mu][sc]sidechaincompress=threshold={music.get('duck_threshold',0.02)}:ratio={music.get('duck_ratio',8)}:attack={music.get('duck_attack',20)}:release={music.get('duck_release',400)}[md];[cd][md]amix=inputs=2:duration=first:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=11[af]")
     else:
         fc.append(f"[ca]atrim=0:{total:.3f}[cd];[cd][mu]amix=inputs=2:duration=first:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=11[af]")
 else:
