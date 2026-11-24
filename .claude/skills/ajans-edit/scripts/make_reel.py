@@ -15,7 +15,7 @@ def render_png(html,out):
     open(out+'.html','w').write(html)
     subprocess.check_call(['node','-e',f"""const {{chromium}}=require('playwright');(async()=>{{const b=await chromium.launch();const p=await b.newPage({{viewport:{{width:1080,height:1920}}}});await p.goto('file://{out}.html');await p.waitForTimeout(400);await p.screenshot({{path:'{out}',omitBackground:true}});await b.close();}})()"""])
 title=spec.get('title',[])
-PLAIN='' if B('title_style','box')!='plain' else '.b{background:none;box-shadow:none;color:#fff;font-size:%dpx;letter-spacing:2px;padding:0;-webkit-text-stroke:%spx #000;paint-order:stroke fill;text-shadow:0 3px 10px rgba(0,0,0,.35)}'%(B('title_size',78),B('title_stroke',5))
+PLAIN='' if B('title_style','box')!='plain' else '.b{background:none;box-shadow:none;color:#fff;font-size:%dpx;letter-spacing:2px;padding:0;-webkit-text-stroke:%spx #000;paint-order:stroke fill;text-shadow:0 3px 10px rgba(0,0,0,.35)} .e{-webkit-text-stroke:0;font-family:"Noto Color Emoji";text-shadow:none}'%(B('title_size',78),B('title_stroke',5))
 if B('title_style','box')=='plain': TFONT=B('title_font_plain','DMSerifDisplay.ttf')
 th=''.join(f'<div class="b">{t}</div>' for t in title)
 render_png(f'''<html><head><style>@font-face{{font-family:MB;src:url('file://{FONTS}/{TFONT}')}}
