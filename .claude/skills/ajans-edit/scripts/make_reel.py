@@ -115,6 +115,14 @@ for k,s in enumerate(allsegs):
     if s.get("vol") is not None: a+=f",volume={s['vol']}"
     if s.get('mute'): a+=",volume=0"
     if s.get('outro') and o.get('mute_audio',True): a+=",volume=0"
+    af=s.get('afrom')  # {"clip","in","fx"}: sesi başka klipten al (örn. yankılı hatıra sesi)
+    if af:
+        dd=s['out']-s['in']
+        fx=af.get('fx','aecho=0.8:0.75:160|320:0.45|0.25,highpass=f=200,lowpass=f=5000')
+        subprocess.check_call(['ffmpeg','-v','error','-y','-ss',str(s['in']),'-t',str(dd),'-i',f"{RAW}/{s['clip']}.MP4",'-ss',str(af['in']),'-t',str(dd),'-i',f"{RAW}/{af['clip']}.MP4",
+          '-filter_complex',f"[0:v]{v}[vo];[1:a]asetpts=PTS-STARTPTS,aresample=48000,afftdn=nf=-28,{fx},volume={af.get('vol',1.0)},apad=whole_dur={dd:.3f},afade=out:st={max(0,dd-0.3):.3f}:d=0.3[ao]",
+          '-map','[vo]','-map','[ao]','-ac','2','-c:v','libx264','-crf','16','-preset','veryfast','-c:a','pcm_s16le','-threads','4',f"{W}/_seg/{k:02d}.mkv"])
+        continue
     subprocess.check_call(['ffmpeg','-v','error','-y','-ss',str(s['in']),'-t',str(s['out']-s['in']),'-i',f"{RAW}/{s['clip']}.MP4",'-vf',v,'-af',a,'-ac','2','-c:v','libx264','-crf','16','-preset','veryfast','-c:a','pcm_s16le','-threads','4',f"{W}/_seg/{k:02d}.mkv"])
 inp=[]
 for k,s in enumerate(allsegs): inp+=['-i',f"{W}/_seg/{k:02d}.mkv"]
