@@ -1,0 +1,32 @@
+{
+ "name": "Eski Kebap",
+ "logo": "/home/user/Mun/.claude/skills/ajans-edit/brands/logos/eskikebap_logo.png",
+ "outro_logo": "/home/user/Mun/.claude/skills/ajans-edit/brands/logos/eskikebap_logo.png",
+ "slogan": "",
+ "fonts_dir": "/home/user/Mun/.claude/skills/ajans-edit/fonts",
+ "title_bg": "#B3121B",
+ "title_fg": "#FFFFFF",
+ "title_font": "Montserrat-Black.ttf",
+ "title_font_plain": "Anton.ttf",
+ "title_stroke": 4,
+ "sub": {
+  "font": "Montserrat Black",
+  "size": 44,
+  "outline": 1.6,
+  "shadow": 1.2,
+  "cap_size": 72,
+  "cap_margin_v": 480,
+  "karaoke": false,
+  "pop": false,
+  "color": "&H00FFFFFF"
+ },
+ "denoise": false,
+ "speech_boost": true,
+ "outro_style": "white",
+ "outro_bg": "#F7F3EC",
+ "colors": {
+  "kirmizi": "#B3121B",
+  "koyu": "#1A1414"
+ },
+ "notes": "Logo geçici: menü fotoğrafından kesildi (gerçek dosya gelince değiştir). Altyazı Deniz gibi düz beyaz. Outro krem kart + logo."
+}

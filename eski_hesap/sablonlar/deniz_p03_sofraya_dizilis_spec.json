@@ -1,0 +1,5 @@
+{"out":"/tmp/claude-0/-home-user-Mun/521f8cfe-2f47-55ee-947c-c97f3b0a55cf/scratchpad/deniz/edit/p03/DENIZ_Reels03_AltiLezzet_v1.mp4","raw":"/tmp/claude-0/-home-user-Mun/521f8cfe-2f47-55ee-947c-c97f3b0a55cf/scratchpad/deniz/raw","brand":"/home/user/Mun/.claude/skills/ajans-edit/brands/deniz_lokantasi.json","title":[],
+ "segments":[{"clip":"C0818","in":0.0,"out":23.0,"mute":true,"rot":1,"speed":1.7}],
+ "subs":[],"overlays":[{"img":"/tmp/claude-0/-home-user-Mun/521f8cfe-2f47-55ee-947c-c97f3b0a55cf/scratchpad/deniz/edit/p03/names.png","clip":"C0818","in":0.0,"out":23.0,"full":true,"nofade":true}],
+ "outro":{"clip":"C0818","in":23.0,"dur":2.6,"rot":1},
+ "music":{"file":"/tmp/claude-0/-home-user-Mun/521f8cfe-2f47-55ee-947c-c97f3b0a55cf/scratchpad/deniz/edit/p03/ref.wav","start":0,"vol":1.0}}

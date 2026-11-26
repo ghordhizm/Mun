@@ -1,0 +1,16 @@
+const {chromium}=require('playwright');
+(async()=>{const b=await chromium.launch();const p=await b.newPage({viewport:{width:1300,height:1300}});
+await p.goto('https://www.swisstransfer.com/en',{waitUntil:'networkidle',timeout:60000});
+await p.getByRole('button',{name:'I agree'}).click().catch(()=>{}); await p.waitForTimeout(1500);
+await p.locator('input[type=file]').first().setInputFiles([process.argv[2]]); await p.waitForTimeout(2000);
+await p.getByRole('button',{name:'Link',exact:true}).click(); await p.waitForTimeout(800);
+const tr=p.getByLabel('Transfer availability'); const tb=await tr.boundingBox(); await p.mouse.click(tb.x+tb.width/2,tb.y+tb.height/2); await p.waitForTimeout(1000);
+const ob=await p.getByRole('option',{name:'30 days'}).boundingBox(); console.log('OB',JSON.stringify(ob)); await p.mouse.move(ob.x+20,ob.y+ob.height/2); await p.waitForTimeout(300); await p.mouse.down(); await p.waitForTimeout(100); await p.mouse.up(); await p.waitForTimeout(800);
+console.log('M30', await tr.evaluate(e=>e.hasAttribute('data-placeholder')+' '+e.innerText));
+await p.mouse.click(tb.x+tb.width/2,tb.y+tb.height/2); await p.waitForTimeout(1000);
+const html=await p.$$eval('[role=option]',e=>e.map(x=>x.outerHTML.slice(0,300))); console.log(html.join('\n'));
+console.log('SELECTS',await p.$$eval('select',e=>e.map(x=>x.outerHTML.slice(0,400))));
+for(let i=0;i<6;i++){await p.keyboard.press('ArrowDown');await p.waitForTimeout(150);} await p.keyboard.press('Enter'); await p.waitForTimeout(800);
+console.log('KB', await p.getByLabel('Transfer availability').evaluate(e=>e.outerHTML.slice(0,900)));
+console.log('AFTER60', await p.getByLabel('Transfer availability').innerText());
+await p.screenshot({path:'up_foto/probe.png'}); await b.close();})();

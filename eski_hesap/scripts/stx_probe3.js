@@ -1,0 +1,11 @@
+const {chromium}=require('playwright');
+(async()=>{const b=await chromium.launch();const p=await b.newPage({viewport:{width:1300,height:1300}});
+const fails=[];p.on('requestfailed',r=>fails.push(r.url().slice(0,120)+' '+r.failure().errorText));
+await p.goto('https://www.swisstransfer.com/en',{waitUntil:'networkidle',timeout:60000});
+await p.getByRole('button',{name:'I agree'}).click(); await p.waitForTimeout(2000);
+await p.locator('input[type=file]').first().setInputFiles([process.argv[2]]); await p.waitForTimeout(2500);
+console.log('BODY',(await p.innerText('body')).replace(/\s+/g,' ').slice(0,1200));
+console.log('BTNS',JSON.stringify(await p.$$eval('button,[role=tab],[role=radio],[role=switch]',e=>e.map(x=>(x.getAttribute('role')||'btn')+':'+x.innerText.trim()+':'+(x.getAttribute('aria-label')||'')).filter(Boolean).slice(0,30))));
+console.log('INPUTS',JSON.stringify(await p.$$eval('input,textarea',e=>e.map(x=>({t:x.type,ph:x.placeholder,al:x.getAttribute('aria-label')})))));
+console.log('FAILS',fails.join('\n'));
+await p.screenshot({path:process.argv[3],fullPage:true});await b.close();})();
