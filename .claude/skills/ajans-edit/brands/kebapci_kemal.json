@@ -1,0 +1,33 @@
+{
+ "name": "Kebapçı Kemal",
+ "logo": "/home/user/Mun/.claude/skills/ajans-edit/brands/logos/kebapci_kemal_logo_gecici.png",
+ "outro_logo": "/home/user/Mun/.claude/skills/ajans-edit/brands/logos/kebapci_kemal_logo_gecici.png",
+ "slogan": "",
+ "fonts_dir": "/home/user/Mun/.claude/skills/ajans-edit/fonts",
+ "title_bg": "#9B1C1C",
+ "title_fg": "#FFFFFF",
+ "title_font": "Montserrat-Black.ttf",
+ "title_font_plain": "Anton.ttf",
+ "title_stroke": 4,
+ "sub": {
+  "font": "Montserrat Black",
+  "size": 44,
+  "outline": 1.6,
+  "shadow": 1.2,
+  "cap_size": 72,
+  "cap_margin_v": 480,
+  "karaoke": false,
+  "pop": false,
+  "color": "&H00FFFFFF"
+ },
+ "denoise": false,
+ "speech_boost": false,
+ "outro_style": "blur",
+ "outro_bg": "#F6F0E4",
+ "colors": {
+  "sari": "#F7D774",
+  "kirmizi": "#9B1C1C",
+  "siyah": "#151515"
+ },
+ "notes": "GEÇİCİ logo (tabeladan yazı). Gerçek logo gelince değiştir."
+}
